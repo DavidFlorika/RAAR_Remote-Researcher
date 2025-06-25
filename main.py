@@ -125,7 +125,7 @@ def main():
     ndvi_thresh   = 0.3      # NDVI below this marks candidate
     elev_thresh   = 200      # elevation above this marks candidate
     min_area      = 10_000   # in m²
-    vec_scale     = 100      # meters per pixel for vectorization
+    vec_scale     = 1000      # meters per pixel for vectorization
     tile_scale    = 4        # internal aggregation factor
 
     # Define your Amazon AOI
