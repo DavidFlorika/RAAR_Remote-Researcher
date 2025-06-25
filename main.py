@@ -3,6 +3,7 @@ from openai import OpenAI
 import os
 import logging
 import sys
+import csv
 
 # Configure logging
 logging.basicConfig(
@@ -117,6 +118,32 @@ def detect_in_tile(tile, collection, dem, ndvi_thresh, elev_thresh, min_area,
         })
     return results
 
+def export_sites_to_csv(sites, path='candidate_sites.csv'):
+    """
+    Writes a CSV with one row per region. Columns:  
+      - geometry: the GeoJSON geometry as a string  
+      - <each property> as its own column
+    """
+    if not sites:
+        print("No sites to export.")
+        return
+
+    # Determine all property names (in case they vary)
+    props = sorted({k for s in sites for k in s['properties'].keys()})
+
+    with open(path, 'w', newline='') as f:
+        writer = csv.writer(f)
+        # Header
+        writer.writerow(['geometry'] + props)
+        # Rows
+        for s in sites:
+            geom = s['geometry']  # a dict
+            geom_str = json.dumps(geom)  # needs import json
+            row = [geom_str] + [s['properties'].get(p) for p in props]
+            writer.writerow(row)
+
+    print(f"Wrote {len(sites)} sites to {path}")
+
 def main():
     authenticate_earth_engine()
     authenticate_OpenAI()
@@ -174,6 +201,9 @@ def main():
         )
         summary = resp.choices[0].message.content
         print(f"\n--- Site {i} Summary ---\n{summary}\n")
+
+    export_sites_to_csv(all_sites, "candidate_sites.csv")
+
 
 if __name__ == '__main__':
     main()
