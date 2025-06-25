@@ -4,6 +4,7 @@ import os
 import logging
 import sys
 import csv
+import json
 
 # Configure logging
 logging.basicConfig(
@@ -138,7 +139,7 @@ def export_sites_to_csv(sites, path='candidate_sites.csv'):
         # Rows
         for s in sites:
             geom = s['geometry']  # a dict
-            geom_str = json.dumps(geom)  # needs import json
+            geom_str = json.dumps(geom)
             row = [geom_str] + [s['properties'].get(p) for p in props]
             writer.writerow(row)
 
@@ -191,19 +192,18 @@ def main():
 
     logging.info(f"Total candidate sites: {len(all_sites)}")
 
+    export_sites_to_csv(all_sites, "candidate_sites.csv")
+
     # Summarize top N with ChatGPT
     for i, site in enumerate(all_sites[:5], start=1):
         props = site['properties']
         prompt = f"Site #{i} properties:\n{props}\n\nPlease provide a concise English summary of what this indicates (e.g., land cover, possible clearing, elevation context)."
-        resp = client.chat.completion.create(
+        resp = client.chat.completions.create(
             model="gpt-4o-mini",
             messages=[{"role": "user", "content": prompt}]
         )
         summary = resp.choices[0].message.content
         print(f"\n--- Site {i} Summary ---\n{summary}\n")
-
-    export_sites_to_csv(all_sites, "candidate_sites.csv")
-
 
 if __name__ == '__main__':
     main()
