@@ -22,7 +22,7 @@ httplib2==0.22.0
 httpx==0.28.1
 idna==3.10
 jiter==0.10.0
-openai==1.91.0
+OpenAI==1.91.0
 proto-plus==1.26.1
 protobuf==6.31.1
 pyasn1==0.6.1

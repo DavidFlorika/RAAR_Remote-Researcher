@@ -1,8 +1,5 @@
-#!/usr/bin/env python3
-# Improved end-to-end script: Earth Engine + ChatGPT summaries with tiling and tileScale
-
 import ee
-import openai
+from openai import OpenAI
 import os
 import logging
 import sys
@@ -14,6 +11,8 @@ logging.basicConfig(
     stream=sys.stdout
 )
 
+client = None
+
 def authenticate_earth_engine(project_id=None):
     """Authenticate and initialize the Earth Engine API."""
     proj = project_id or os.getenv("EARTHENGINE_PROJECT")
@@ -23,12 +22,14 @@ def authenticate_earth_engine(project_id=None):
     ee.Initialize(project=proj)
     logging.info(f"Earth Engine initialized with project: {proj}")
 
-def authenticate_openai():
+def authenticate_OpenAI():
     """Authenticate the OpenAI client."""
+    global client
     key = os.getenv("OPENAI_API_KEY")
     if not key:
         raise EnvironmentError("Missing OPENAI_API_KEY.")
-    openai.api_key = key
+    client = OpenAI(api_key=key)
+    print(client.models.list())  # Test the connection
     logging.info("OpenAI authenticated.")
 
 def split_aoi(aoi, tile_size_deg=0.5):
@@ -118,7 +119,7 @@ def detect_in_tile(tile, collection, dem, ndvi_thresh, elev_thresh, min_area,
 
 def main():
     authenticate_earth_engine()
-    authenticate_openai()
+    authenticate_OpenAI()
 
     # User parameters
     tile_size_deg = 0.5
@@ -167,7 +168,7 @@ def main():
     for i, site in enumerate(all_sites[:5], start=1):
         props = site['properties']
         prompt = f"Site #{i} properties:\n{props}\n\nPlease provide a concise English summary of what this indicates (e.g., land cover, possible clearing, elevation context)."
-        resp = openai.ChatCompletion.create(
+        resp = client.chat.completion.create(
             model="gpt-4o-mini",
             messages=[{"role": "user", "content": prompt}]
         )
