@@ -24,16 +24,6 @@ def authenticate_earth_engine(project_id=None):
     ee.Initialize(project=proj)
     logging.info(f"Earth Engine initialized with project: {proj}")
 
-def authenticate_OpenAI():
-    """Authenticate the OpenAI client."""
-    global client
-    key = os.getenv("OPENAI_API_KEY")
-    if not key:
-        raise EnvironmentError("Missing OPENAI_API_KEY.")
-    client = OpenAI(api_key=key)
-    print(client.models.list())  # Test the connection
-    logging.info("OpenAI authenticated.")
-
 def split_aoi(aoi, tile_size_deg=0.5):
     """
     Split a polygon AOI into a grid of smaller tiles (in degrees).
@@ -147,7 +137,6 @@ def export_sites_to_csv(sites, path='candidate_sites.csv'):
 
 def select_possible_site(aoi):
     authenticate_earth_engine()
-    authenticate_OpenAI()
 
     # User parameters
     tile_size_deg = 0.5
