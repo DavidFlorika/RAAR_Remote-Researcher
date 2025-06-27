@@ -1,22 +1,13 @@
 from possibleSiteSelection import select_possible_site
 from subregions import export_subregions
 from processSites import process_sites
-from openai import OpenAI
-import os
+from chatGPT_evaluate import evaluate_sites_with_chatgpt
 import logging
 
-def authenticate_OpenAI():
-    """Authenticate the OpenAI client."""
-    global client
-    key = os.getenv("OPENAI_API_KEY")
-    if not key:
-        raise EnvironmentError("Missing OPENAI_API_KEY.")
-    client = OpenAI(api_key=key)
-    print(client.models.list())  # Test the connection
-    logging.info("OpenAI authenticated.")
-
-
 def main():
+
+    MODEL_NAME = "gpt-4o-mini"
+    ADVICE_CSV = "site_advice.csv"
 
     aoi = [
         [-64, -10],
@@ -39,6 +30,11 @@ def main():
     logging.info(f"Processed sites with {len(final_sites)} entries.")
 
     logging.info(f"Final sites exported: {len(final_sites)} sites.")
+
+    logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
+
+    evaluate_sites_with_chatgpt(final_sites, model_name=MODEL_NAME, advice_csv=ADVICE_CSV)
+    logging.info("Site evaluation completed.")
 
 if __name__ == '__main__':
     main()
