@@ -28,4 +28,14 @@ _"We challenge you to bring legends to life by finding previously unknown archae
 
 #### 1.2.1 Setting Up the Keys
 
-**How to add keys**
+**How to add keys?**
+
+Go to [https://github.com/DavidFlorika/AmazonArcheologicalSiteSearch/blob/main/environment_keys_tutorial.pdf](https://github.com/DavidFlorika/AmazonArcheologicalSiteSearch/blob/main/environment_keys_tutorial.pdf) for a documented tutorial for both Windows and Mac
+
+**How to get ChatGPT API?**
+
+Go to [https://www.merge.dev/blog/chatgpt-api-key](https://www.merge.dev/blog/chatgpt-api-key)
+
+**How to set up Google Earth Engine project?**
+
+Go to []()
