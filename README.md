@@ -38,4 +38,11 @@ Go to [https://www.merge.dev/blog/chatgpt-api-key](https://www.merge.dev/blog/ch
 
 **How to set up Google Earth Engine project?**
 
-Go to []()
+Go to [https://github.com/DavidFlorika/AmazonArcheologicalSiteSearch/blob/main/gee_project_id_tutorial.pdf](https://github.com/DavidFlorika/AmazonArcheologicalSiteSearch/blob/main/gee_project_id_tutorial.pdf)
+
+#### 1.2.2 Downloading Requirements
+
+Download all requirements by pasting the following code into your terminal:
+'pip install -r requirements.txt'
+
+
