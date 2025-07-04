@@ -30,15 +30,15 @@ _"We challenge you to bring legends to life by finding previously unknown archae
 
 **How to add keys?**
 
-Go to [https://github.com/DavidFlorika/AmazonArcheologicalSiteSearch/blob/main/environment_keys_tutorial.pdf](https://github.com/DavidFlorika/AmazonArcheologicalSiteSearch/blob/main/environment_keys_tutorial.pdf) for a documented tutorial for both Windows and Mac
+- Go to [https://github.com/DavidFlorika/AmazonArcheologicalSiteSearch/blob/main/environment_keys_tutorial.pdf](https://github.com/DavidFlorika/AmazonArcheologicalSiteSearch/blob/main/environment_keys_tutorial.pdf) for a documented tutorial for both Windows and Mac
 
 **How to get ChatGPT API?**
 
-Go to [https://www.merge.dev/blog/chatgpt-api-key](https://www.merge.dev/blog/chatgpt-api-key)
+- Go to [https://www.merge.dev/blog/chatgpt-api-key](https://www.merge.dev/blog/chatgpt-api-key)
 
 **How to set up Google Earth Engine project?**
 
-Go to [https://github.com/DavidFlorika/AmazonArcheologicalSiteSearch/blob/main/gee_project_id_tutorial.pdf](https://github.com/DavidFlorika/AmazonArcheologicalSiteSearch/blob/main/gee_project_id_tutorial.pdf)
+- Go to [https://github.com/DavidFlorika/AmazonArcheologicalSiteSearch/blob/main/gee_project_id_tutorial.pdf](https://github.com/DavidFlorika/AmazonArcheologicalSiteSearch/blob/main/gee_project_id_tutorial.pdf)
 
 #### 1.2.2 Downloading Requirements
 
