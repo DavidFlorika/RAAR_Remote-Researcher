@@ -43,6 +43,8 @@ _"We challenge you to bring legends to life by finding previously unknown archae
 #### 1.2.2 Downloading Requirements
 
 Download all requirements by pasting the following code into your terminal:
-'pip install -r requirements.txt'
+`pip install -r requirements.txt`
+
+## 2。Workflow
 
 
