@@ -45,6 +45,43 @@ _"We challenge you to bring legends to life by finding previously unknown archae
 Download all requirements by pasting the following code into your terminal:
 `pip install -r requirements.txt`
 
-## 2。Workflow
+## 2. Workflow
+
+**Area of Interest (AOI)**
+
+Our area of interest lies in north-western Brazil and covers roughly 1 233 204 km². It is defined by the following bounding polygon (longitude, latitude):
+`
+aoi = [
+        [-64, -10],
+        [-54, -10],
+        [-54,   0],
+        [-64,   0]
+    ]
+`
+
+This project is structured to follow a process that ensures reproducibility, scalability, and interpretability. Tiling: The AOI is divided into 0.5 * 0.5 degree tiles for smaller and easier computations.
+
+Site Detection: Using NVDI and DEM, we find low forest cover and elevation anomalies regions that suggest human modification.
+
+CSV Export: Final candidates are exported to a CSV file and further process using ChatGPT to find the most possible 25 regions.
+
+Although the pipeline is still under refinement, initial runs have yielded hundreds of candidate regions exhibiting unusual patterns of vegetation and elevation. These include: Ridges possibly used as roads or walls
+
+Circular or rectangular clearings that suggests of residential enclosures
+
+Terracing or elevated mounds of agriculture fields
+
+The resulting CSV output gives the spatial coordinates, mean NDVI/elevation values, and area for each polygon. All results are stored into the results folder. Final result of 25 highly possible sites with ChatGPT analysis: site_advice.csv.
+
+**Workflow Conclusion**
+
+The Amazon holds a hidden historical record of complex human civilizations. Many of these cultures changed the landscapes, leaving behind physical traces that are detectable by improving technology.
+
+This project demonstrates a scalable, reproducable workflow for detecting potential archaeological features across a vast rainforest. By using NDVI, DEM, spatial analysis, and AI-powered interpretation, we can find new discoveries in Amazonian history and guide future explorations.
+
+## 3. Conclusion
+
+
+
 
 
