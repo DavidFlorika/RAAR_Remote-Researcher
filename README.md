@@ -82,6 +82,7 @@ This project demonstrates a scalable, reproducable workflow for detecting potent
 ## 3. Conclusion
 
 This project provides a introductory insight into the usage of AI (ChatGPT) and automated data processing in archeological research and other data science applications. The implementation of automated data processing could potentially be improved by including more accurate researches and increasing the depth of datasets and number of dimensions when analysing problems or cases using pure data analysis.
+
 The results of it demonstrates values of artificial intelligence in remote sensing researches. Nontheless, if human archeological experts were involved in the evaluation and identification phase with the help from ChatGPT, more precise and refined results could perhaps be generated, and more valuable implications in real-life archeological studies may be applied. 
 
 ## 4. Contributors
