@@ -75,9 +75,7 @@ The resulting CSV output gives the spatial coordinates, mean NDVI/elevation valu
 
 **Workflow Conclusion**
 
-The Amazon holds a hidden historical record of complex human civilizations. Many of these cultures changed the landscapes, leaving behind physical traces that are detectable by improving technology.
-
-This project demonstrates a scalable, reproducable workflow for detecting potential archaeological features across a vast rainforest. By using NDVI, DEM, spatial analysis, and AI-powered interpretation, we can find new discoveries in Amazonian history and guide future explorations.
+25 Possible sites suggestions are produced. See results/site_advices.csv for AI-evaluated suggestions and analysis.
 
 ## 3. Conclusion
 
