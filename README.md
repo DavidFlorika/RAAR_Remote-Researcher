@@ -1,4 +1,4 @@
-# RAAR: Remote Archeological Researcher
+# RAR: Remote Archeological Researcher
 
 ---
 
